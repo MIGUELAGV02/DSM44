@@ -1,0 +1,104 @@
+/* generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #3f080873;
+}
+
+/* Barra de navegación */
+header {
+    background-color: #1a1736;
+    color: #fff;
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #d81a9f;
+}
+
+/* css de la etiqueta a */
+.no-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: text;
+}
+
+
+/* Sección de bienvenida */
+.bienvenida {
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    background-image: url('../img/libro.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+     background-repeat: no-repeat; /* no se repite */
+}
+
+
+.bienvenida h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bienvenida p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Nosotros */
+.hero-section {
+    background-color: #1a1736;
+    color: white;
+    padding: 3rem 0;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+}
+
+.hero-section .lead {
+    font-size: 1.2rem;
+}
+
+/* Misión y visión */
+.mission-vision-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+}
+
+/* Equipo */
+.team-photo {
+    width: 150px;
+    height: 150px;
+}
+
+/* Contacto */
+.contact-section {
+    background-color: #1a1736;
+    color: white;
+    padding: 3rem 0;
+}
+
+.contact-section .btn-light {
+    margin-top: 1rem;
+    font-weight: bold;
+}
