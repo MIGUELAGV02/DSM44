@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Libro;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Libro::factory(5)->create();
+
+        
+        // Libro::factory(5)->create();
+        $user = new User;
+        $user->name = 'Admin';
+        $user->email = 'admin@test.com';
+        $user->role = 'admin';
+        $user->password = '1234';
+
+        $user->save();
     }
+
 }

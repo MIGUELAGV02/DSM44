@@ -4,16 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class LibroController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $lista = Libro::orderBy('id_libro', 'desc')->get();
+        $buscarpor = $request->get('buscarpor');
+
+        $lista = Libro::orderBy('id_libro', 'desc')->where('nombre','like','%'.$buscarpor.'%')->paginate(5);
 
 
-        return view('libros.index',compact('lista'));
+        return view('libros.index',compact('lista','buscarpor'));
     }
+
+
+    // public function pdf(Libro $xd){
+        
+    //     $xd = Libro::all();
+    //     $pdf = Pdf::loadView('libros.pdf', compact('xd'));
+    //      return $pdf->stream();
+    //     //return $pdf->download('libro.pdf');
+
+    // }
+
+    
+
 
     public function create(){
         return view('libros.create');
@@ -25,6 +41,20 @@ class LibroController extends Controller
         return view('libros.show', compact('mostrar'));
     }
 
+
+    public function pdf(Libro $ver)
+    {
+        $mostrar = Libro::find($ver);
+
+        //dd($mostrar);
+        
+        $pdf = Pdf::loadView('libros.pdf', compact('mostrar'));
+
+        return $pdf->stream("Detalle_Libro.pdf");
+
+    }
+
+    
     public function store(Request $request){
         $recuperar = new Libro();
 

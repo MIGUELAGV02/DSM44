@@ -1,104 +1,203 @@
-/* generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
+/* Estilo general del body */
 body {
-    line-height: 1.6;
-    background-color: #3f080873;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #000000, #a93434, #314c74, #892f2f, #183a6e);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Barra de navegación */
+/* Animación para el fondo de color */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Barra de navegación mejorada y centrada */
 header {
-    background-color: #1a1736;
-    color: #fff;
-    padding: 1rem;
+  background-color: rgba(17, 50, 97, 0.9);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;  /* La barra llega al borde */
+  display: flex;
+  justify-content: center;  /* Centra todo el contenido */
+  align-items: center;
+  animation: slideIn 0.6s ease-out;  /* Animación de entrada */
 }
 
+/* Animación de entrada para la barra */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo de la barra de navegación */
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header .logo:hover {
+  color: #ffce00;
+}
+
+/* Estilos de los enlaces del menú de navegación */
 nav ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;  /* Centra los enlaces dentro del ul */
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
 }
 
 nav ul li a:hover {
-    color: #d81a9f;
+  color: #333;
+  background-color: #ffce00;
+  transform: translateY(-3px);  /* Eleva el enlace al pasar el cursor */
+  box-shadow: 0 4px 8px rgba(255, 206, 0, 0.3); /* Sombra amarilla en hover */
 }
 
-/* css de la etiqueta a */
-.no-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: text;
+/* Estilo para activar el enlace actual (página activa) */
+nav ul li a.active {
+  background-color: #ffce00;
+  color: #333;
 }
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 
 
 /* Sección de bienvenida */
 .bienvenida {
-    text-align: center;
-    padding: 2rem;
-    color: white;
-    background-image: url('../img/libro.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-     background-repeat: no-repeat; /* no se repite */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  color: #ffffff;
+  text-align: center;
 }
 
-
 .bienvenida h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .bienvenida p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.5;
+  color: #e0e0e0;
 }
 
-/* Nosotros */
-.hero-section {
-    background-color: #1a1736;
-    color: white;
-    padding: 3rem 0;
+/* Mejoras de estilo para la tabla y botones */
+.btn-sm i {
+  font-size: 0.9rem; /* Hacer los iconos un poco más pequeños */
+  transition: transform 0.2s ease; /* Animación suave de 0.2 segundos */
 }
 
-.hero-section h1 {
-    font-size: 2.5rem;
+table th, table td {
+  text-align: center; /* Centrar el texto en la tabla */
 }
 
-.hero-section .lead {
-    font-size: 1.2rem;
+/* Botones con estilo centrado */
+.btn-sm {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
-/* Misión y visión */
-.mission-vision-section {
-    background-color: #f8f9fa;
-    padding: 3rem 0;
+/* Estilo de la tabla */
+.table {
+  background-color: rgba(50, 50, 50, 0.85);
+  color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1000px;
 }
 
-/* Equipo */
-.team-photo {
-    width: 150px;
-    height: 150px;
+.table thead {
+  background-color: #3d3d3d;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: bold;
 }
 
-/* Contacto */
-.contact-section {
-    background-color: #1a1736;
-    color: white;
-    padding: 3rem 0;
+.table thead th,
+.table tbody td {
+  padding: 0.75rem 1rem;
 }
 
-.contact-section .btn-light {
-    margin-top: 1rem;
-    font-weight: bold;
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #444;
 }
+
+/* Animación de zoom al pasar el mouse sobre los iconos */
+.btn-sm:hover i {
+  transform: scale(1.4); /* Aumentar el tamaño del icono un 10% */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination .page-item {
+  margin: 0 5px;
+}
+.pagination .page-link {
+  color: #000000;
+  background-color: #f9fcff;
+  border: 1px solid #dee2e6;
+}
+.pagination .page-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.pagination .active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
